@@ -1,0 +1,8 @@
+	Perbedaan persebaran nilai keabuan antara ketiga citra (asli, negatif, dan logaritmik) biasanya sebagai berikut:
+- Citra Asli: Persebaran nilai keabuan mengikuti karakteristik asli citra, biasanya dengan konsentrasi nilai intensitas tertentu sesuai objek dan pencahayaan dalam citra.
+- Citra Negatif: Nilai keabuan terbalik, yaitu intensitas gelap menjadi terang dan sebaliknya. Histogramnya akan menjadi cermin horizontal dari histogram citra asli, sehingga puncak intensitas yang tinggi di citra asli akan menjadi puncak intensitas rendah di citra negatif, dan sebaliknya.
+- Citra Logaritmik: Transformasi logaritmik menekan nilai intensitas tinggi dan memperbesar nilai intensitas rendah, sehingga histogramnya cenderung lebih terkonsentrasi di rentang intensitas rendah sampai menengah. Ini membuat detail pada area gelap lebih terlihat, sedangkan area terang menjadi lebih rata.
+	Kapan transformasi logaritmik lebih bermanfaat dibanding negatif?
+- Transformasi logaritmik lebih bermanfaat ketika ingin memperjelas detail pada area gelap citra yang memiliki rentang intensitas kecil, karena logaritma memperbesar nilai intensitas rendah sehingga detail gelap menjadi lebih terlihat.
+- Sebaliknya, transformasi negatif hanya membalik intensitas tanpa memperbaiki kontras atau detail, sehingga kurang efektif untuk memperjelas area gelap.
+- Jadi, jika fokusnya adalah meningkatkan visibilitas detail pada bagian gelap citra, transformasi logaritmik lebih tepat digunakan daripada negatif.

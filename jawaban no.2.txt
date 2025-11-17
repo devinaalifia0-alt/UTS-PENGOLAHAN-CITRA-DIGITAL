@@ -1,0 +1,30 @@
+| Jenis Filter | efek visual utama             | rata-rata piksel(μ) | penejelasan 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| original     | citra asli                    | μ₀                |Referensi awal
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| LPF          | Lebih halus, blur             | μ₁ ≈ μ₀           | LPF meratakan intensitas, tapi tidak mengubah total energi
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| HPF          | Tepi menonjol, kontras tinggi | μ₂ < μ₀           | HPF menghilangkan komponen DC (rata-rata), sehingga nilai piksel cenderung lebih rendah
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+| BPF          | Tajam, detail jelas           | μ₃ ≈ μ₀ atau sedikit lebih tinggi | BPF mempertahankan detail dan menambah kontras lokal
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Hubungan Domain Spasial vs Frekuensi
+Filter spasial bekerja langsung pada piksel menggunakan kernel konvolusi. Namun, efeknya bisa dijelaskan lebih dalam melalui domain frekuensi (Transformasi Fourier):
+1. Low Pass Filter (LPF)
+- Spasial: Kernel rata-rata (blur)
+- Frekuensi: Menekan komponen frekuensi tinggi → menghaluskan citra
+- Makna: Menghilangkan detail kecil dan noise, mempertahankan struktur besar
+2. High Pass Filter (HPF)
+- Spasial: Kernel deteksi tepi (nilai tengah besar, sekeliling negatif)
+- Frekuensi: Menekan komponen frekuensi rendah → menonjolkan perubahan cepat (tepi)
+- Makna: Menghilangkan area datar, menonjolkan kontur dan batas
+3. Band Pass Filter (BPF)
+- Spasial: Kernel penajaman (gabungan LPF dan HPF)
+- Frekuensi: Menyaring frekuensi menengah → mempertajam detail tanpa noise ekstrem
+- Makna: Cocok untuk meningkatkan detail tanpa mengorbankan struktur global
+
+Intuisi Konversi Domain
+- Spasial: "Apa yang terjadi di sekitar piksel ini?"
+- Frekuensi: "Seberapa cepat intensitas berubah di area ini?"
+Konvolusi di domain spasial setara dengan perkalian di domain frekuensi. Maka, memahami filter sebagai penyaring frekuensi memberi wawasan lebih dalam tentang efeknya terhadap struktur citra.
